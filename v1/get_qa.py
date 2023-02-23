@@ -11,7 +11,7 @@ df = df.with_columns((pl.col("title") + "\n" + pl.col("section") +
                       "\n\n" + pl.col("content")).alias("context"))
 
 
-def get_questions(context):
+def get_questions(context: str) -> str:
     try:
         response = openai.Completion.create(
             engine="text-davinci-003",
